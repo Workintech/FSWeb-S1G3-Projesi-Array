@@ -39,10 +39,12 @@ Aşağıdakileri yapmak için aşağıdaki kopyalama işlevini kullanın:
    2. Alınan dizinin bir kopyasını döndür
 */
 
-
-function kopyala(/*kod buraya*/){
-  /*kod buraya*/
+let dizi=[];
+function kopyala(){
+return dizi=[].concat(orijinalTatlar);
 }
+kopyala();
+
 
 
 /* Görev 2:
@@ -56,9 +58,14 @@ Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları ka
 */
 
 
-function dizi25Cesitmi(/*kod buraya*/){
-  /*kod buraya*/
+function dizi25Cesitmi(){if(dizi.length===25){
+  return true;
 }
+  else{
+    return false;}
+}
+dizi25Cesitmi();
+
 
 
 /* Görev 3:
@@ -74,9 +81,15 @@ Aşağıdakileri yapmak için cesitEkle işlevini kullanın:
 */
 
 
-function cesitEkle(/*kod buraya*/){
-  /*kod buraya*/
-}
+function cesitEkle(dizi,yeniTad){
+  dizi.unshift(yeniTad);
+  return dizi
+  
+  }
+cesitEkle(dizi,"Kakule");
+
+
+
 
 
 /* Cörev 4:
@@ -92,9 +105,12 @@ Aşağıdakileri yapmak için sonCesitiKaldir işlevini kullanın:
 */
 
 
-function sonCesitiKaldir(/*kod buraya*/){
-  /*kod buraya*/
+function sonCesitiKaldir(dizi){
+dizi.pop();
+return dizi;
 }
+sonCesitiKaldir(dizi);
+
 
 
 /* Görev 5:
@@ -108,9 +124,11 @@ Aşağıdakileri yapmak için aşağıdaki indekstekiCesitiGetir işlevini kulla
    Örneğin: indekstekiCesitiGetir(orijinalTatlar, 2) çalıştırılmasıyla, Kakule'in başarıyla eklendiği varsayarsak sonuç "Ceviz" olucaktır.
 */
 
-function indekstekiCesitiGetir(/*kod buraya*/){
-  /*kod buraya*/
+function indekstekiCesitiGetir(dizi,a){
+  return dizi[a];
+  
 }
+indekstekiCesitiGetir(dizi,2);
 
 
 /* Görev 6:
@@ -128,9 +146,15 @@ Aşağıdakileri yapmak için ismeGoreCesitCikar işlevini kullanın:
   İPUCU: Bunun için .splice() kullanabilirsiniz.
 */
 
-function ismeGoreCesitCikar(/*kod buraya*/){
-  /*kod buraya*/
+
+function ismeGoreCesitCikar(dizi,lezzet){
+  let cc =dizi.indexOf(lezzet)
+ dizi.splice(cc,1);
+ return dizi;
 }
+ismeGoreCesitCikar(dizi,"Tarçın");
+
+
 
 
 /* Görev 7:
@@ -152,11 +176,17 @@ Aşağıdakileri yapmak için ismeGoreFiltrele işlevini kullanın:
 
   Bu sorunu çözmek için GELİŞMİŞ DİZİ YÖNTEMLERİNİ (yani .filter) KULLANMAYIN.
 */
-
-
-function ismeGoreFiltrele(/*kod buraya*/){
-  /*kod buraya*/
+let b=[];
+console.log(dizi.includes("Çikolata"));
+function ismeGoreFiltrele(dizi,ayay){
+ for(let i =0;i<dizi.length;i++){
+  if(dizi[i].includes(ayay)===true){
+    b.push(dizi[i]);
+  }
+ }
+ return b;
 }
+ismeGoreFiltrele(b,"Çikolata");
 
 
 
