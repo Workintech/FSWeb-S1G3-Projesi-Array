@@ -1,4 +1,4 @@
-## İleri düzey CSS ve JavaScript'e giriş
+## JavaScript'e giriş
 
 ## Diziler
 
