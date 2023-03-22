@@ -23,7 +23,7 @@ VSCode ve Komut Satırını Kullanma:
 2. Fork'ladığın repo'yu bilgisayarında clone'la.
 3. Bu projede `main` branch'ine push'layacaksın. LÜTFEN BRANCH OLUŞTURMA!
 4. **Repo'nuzun olduğu klasöre gidin** (`cd repo_adi`)
-5. Yeni bir dosya oluşturup; ".gitignore" olarak isimlendir. İçine sadece `node_modules/` yazıp.
+5. Yeni bir dosya oluşturup; ".gitignore" olarak isimlendir. İçine sadece `node_modules/` yaz ve kaydet.
 6. Vs Code'da terminali açın ve `npm install` yazın ve çalıştırın. Bunu her projede sadece 1 kere yapacaksın.
 7. Terminalde de, proje dizinindeyken, VS Code'da "split terminal"i tıklayarak ikinci bir terminal ekranı aç.
    - Sonra `npm run test` yaz ve çalıştır
