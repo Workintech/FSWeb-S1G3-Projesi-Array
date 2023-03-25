@@ -40,9 +40,10 @@ Aşağıdakileri yapmak için aşağıdaki kopyalama işlevini kullanın:
 */
 
 
-function kopyala(/*kod buraya*/){
-  /*kod buraya*/
+function kopyala(orijinalTatlar){
+  return orijinalTatlar
 }
+console.log(kopyala(orijinalTatlar));
 
 
 /* Görev 2:
@@ -56,9 +57,15 @@ Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları ka
 */
 
 
-function dizi25Cesitmi(/*kod buraya*/){
-  /*kod buraya*/
-}
+function dizi25Cesitmi(orijinalTatlar){
+  if(orijinalTatlar.length == 25) {
+    return true
+  } else {
+    return false
+  }
+  }
+
+console.log(dizi25Cesitmi(orijinalTatlar));
 
 
 /* Görev 3:
@@ -74,9 +81,12 @@ Aşağıdakileri yapmak için cesitEkle işlevini kullanın:
 */
 
 
-function cesitEkle(/*kod buraya*/){
-  /*kod buraya*/
+function cesitEkle(orijinalTatlar){
+  let cesit = "kakule";
+orijinalTatlar.unshift ("kakule");
+return orijinalTatlar
 }
+console.log(cesitEkle(orijinalTatlar));
 
 
 /* Cörev 4:
@@ -92,10 +102,11 @@ Aşağıdakileri yapmak için sonCesitiKaldir işlevini kullanın:
 */
 
 
-function sonCesitiKaldir(/*kod buraya*/){
-  /*kod buraya*/
+function sonCesitiKaldir(orijinalTatlar){
+  orijinalTatlar.pop ();
+  return orijinalTatlar
 }
-
+console.log(sonCesitiKaldir(orijinalTatlar));
 
 /* Görev 5:
 Dizideki belirli bir indeksteki çeşniyi döndüren bir işlev yazın.
@@ -108,9 +119,11 @@ Aşağıdakileri yapmak için aşağıdaki indekstekiCesitiGetir işlevini kulla
    Örneğin: indekstekiCesitiGetir(orijinalTatlar, 2) çalıştırılmasıyla, Kakule'in başarıyla eklendiği varsayarsak sonuç "Ceviz" olucaktır.
 */
 
-function indekstekiCesitiGetir(/*kod buraya*/){
-  /*kod buraya*/
+function indekstekiCesitiGetir(orijinalTatlar){
+  console.log(orijinalTatlar[4]);
+  return orijinalTatlar
 }
+console.log (indekstekiCesitiGetir(orijinalTatlar));
 
 
 /* Görev 6:
@@ -128,10 +141,12 @@ Aşağıdakileri yapmak için ismeGoreCesitCikar işlevini kullanın:
   İPUCU: Bunun için .splice() kullanabilirsiniz.
 */
 
-function ismeGoreCesitCikar(/*kod buraya*/){
-  /*kod buraya*/
+function ismeGoreCesitCikar(orijinalTatlar){
+ 
+  orijinalTatlar.splice (14, 1);
+  return orijinalTatlar
 }
-
+console.log (ismeGoreCesitCikar(orijinalTatlar));
 
 /* Görev 7:
 
@@ -154,7 +169,7 @@ Aşağıdakileri yapmak için ismeGoreFiltrele işlevini kullanın:
 */
 
 
-function ismeGoreFiltrele(/*kod buraya*/){
+function ismeGoreFiltrele(orijinalTatlar){
   /*kod buraya*/
 }
 
