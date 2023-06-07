@@ -40,11 +40,11 @@ Aşağıdakileri yapmak için aşağıdaki kopyalama işlevini kullanın:
 */
 
 
-function kopyala(/*kod buraya*/){
-  /*kod buraya*/
+function kopyala(orjinalDizi){
+  return Array.from(orjinalDizi);
 }
-
-
+const kopyaDizi = kopyala(orijinalTatlar)
+//console.log(kopyaDizi)
 /* Görev 2:
 Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları kabul etmelidir:
    1. parametre olarak bir dizi
@@ -56,10 +56,13 @@ Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları ka
 */
 
 
-function dizi25Cesitmi(/*kod buraya*/){
-  /*kod buraya*/
+function dizi25Cesitmi(dizi){
+  if(dizi.length === 25){
+    return true;
+  }else{ 
+    return false;}
 }
-
+//console.log(dizi25Cesitmi(orijinalTatlar))
 
 /* Görev 3:
 Pastane sahibi size yeni bir lezzet fikriyle geldi: Kakule! Bunun da çok tutacağından çok emin. Bu lezzeti eklemek için diziyi değiştirmeniz gerekir.
@@ -74,9 +77,13 @@ Aşağıdakileri yapmak için cesitEkle işlevini kullanın:
 */
 
 
-function cesitEkle(/*kod buraya*/){
-  /*kod buraya*/
+function cesitEkle(dizi, yeniTat){
+  dizi.unshift(yeniTat);
+  return dizi
 }
+
+cesitEkle(orijinalTatlar, "Kakule");
+//console.log(orijinalTatlar)
 
 
 /* Cörev 4:
@@ -92,10 +99,11 @@ Aşağıdakileri yapmak için sonCesitiKaldir işlevini kullanın:
 */
 
 
-function sonCesitiKaldir(/*kod buraya*/){
-  /*kod buraya*/
+function sonCesitiKaldir(dizi){
+  dizi.pop();
+  return dizi;
 }
-
+//console.log(sonCesitiKaldir(orijinalTatlar))
 
 /* Görev 5:
 Dizideki belirli bir indeksteki çeşniyi döndüren bir işlev yazın.
@@ -106,12 +114,14 @@ Aşağıdakileri yapmak için aşağıdaki indekstekiCesitiGetir işlevini kulla
    3. Verilen indekste bulunan çeşiti döndürün
 
    Örneğin: indekstekiCesitiGetir(orijinalTatlar, 2) çalıştırılmasıyla, Kakule'in başarıyla eklendiği varsayarsak sonuç "Ceviz" olucaktır.
-*/
+*/ 
+// burada Kakule eklendikten sonra Cevizin indexi 3 oluyor artık, dolayısıyla Vişne gelmeli?
 
-function indekstekiCesitiGetir(/*kod buraya*/){
-  /*kod buraya*/
+function indekstekiCesitiGetir(dizi, indeks){
+  return dizi[indeks];
 }
-
+//console.log(indekstekiCesitiGetir(orijinalTatlar, 2))
+//console.log(orijinalTatlar)
 
 /* Görev 6:
 
@@ -127,11 +137,19 @@ Aşağıdakileri yapmak için ismeGoreCesitCikar işlevini kullanın:
 
   İPUCU: Bunun için .splice() kullanabilirsiniz.
 */
-
-function ismeGoreCesitCikar(/*kod buraya*/){
-  /*kod buraya*/
+//console.log(orijinalTatlar)
+function ismeGoreCesitCikar(dizi, isim){
+  const idx = dizi.indexOf(isim);
+  dizi.splice(idx, 1);
+  return dizi;
 }
+// Orjinal halinden çıkarınca:
+const dizi2 = ismeGoreCesitCikar(kopyaDizi, "Tarçın")
+//console.log(dizi2.length)
 
+// Kakule eklendikten sonra Tarçın çıkınca:
+const dizi3 = ismeGoreCesitCikar(orijinalTatlar, "Tarçın")
+//console.log(dizi3.length)
 
 /* Görev 7:
 
@@ -154,10 +172,17 @@ Aşağıdakileri yapmak için ismeGoreFiltrele işlevini kullanın:
 */
 
 
-function ismeGoreFiltrele(/*kod buraya*/){
-  /*kod buraya*/
+function ismeGoreFiltrele(dizi, filtre){
+  let filterDizi = [];
+  for(let i=0; i<dizi.length; i++){
+    if(dizi[i].includes(filtre)){
+      filterDizi.push(dizi[i]);
+    }
+  }
+  return filterDizi;
 }
-
+const cikolata = ismeGoreFiltrele(orijinalTatlar, "Çikolata");
+//console.log(cikolata)
 
 
 /* ALIŞTIRMA */
@@ -172,9 +197,41 @@ Aşağıdakileri yapmak için ortalamaKelimeSayisi işlevini kullanın:
    Örneğin: ortalamaKelimeSayisi(orijinalTatlar) 0 ile 2 arasında bir sayı döndürmelidir.
 */
 
-function ortalamaKelimeSayisi(/*kod buraya*/){
-  /*kod buraya*/
+function ogeKelimeSayisi(dizi){
+  if (dizi.length === 0) {
+    return 0;
+  }
+  let toplamKelimeSayisi = [];
+
+  for (let i = 0; i < dizi.length; i++) {
+    const kelimeSayisi = dizi[i].split(' ').length;
+    toplamKelimeSayisi.push(kelimeSayisi);
+  }
+
+  //const ortalamaKelimeSayisi = toplamKelimeSayisi / dizi.length;
+
+  return toplamKelimeSayisi;
 }
+const sayi = ogeKelimeSayisi(orijinalTatlar);
+//console.log(sayi);
+
+function ortalamaKelimeSayisi(dizi){
+  if (dizi.length === 0) {
+    return 0;
+  }
+  let toplamKelimeSayisi = 0;
+
+  for (let i = 0; i < dizi.length; i++) {
+    const kelimeSayisi = dizi[i].split(' ').length;
+    toplamKelimeSayisi += kelimeSayisi;
+  }
+
+  const ortalamaKelimeSayisi = toplamKelimeSayisi / dizi.length;
+
+  return ortalamaKelimeSayisi;
+}
+const ortSayi = ortalamaKelimeSayisi(orijinalTatlar);
+//console.log(ortSayi);
 
 
 /* ALIŞTIRMA 2:
@@ -189,48 +246,59 @@ Aşağıdakileri yapmak için rastgeleTatlar işlevini ve yeni dizileri kullanı
   Örneğin: rastgeleTatlar(orijinalTatlar, yeniTatlar, mevsimlikTatlar, bolgeselTatlar) çalıştırıldığında ["Kestane", "Ballı Badem,"..."Hindistan Cevizi", "Kuru üzüm"].
 */
 
-
-function rastgeleTatlar(/*kod buraya*/){
-  /*kod buraya*/
-}
-
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
-// const yeniTatlar = [
-//   "Badem",
-//   "Ballı Badem",
-//   "Fıstık Ezmesi",
-//   "Profiterol",
-//   "Madlen Çikolata"
-// ]
+const yeniTatlar = [
+  "Badem",
+  "Ballı Badem",
+  "Fıstık Ezmesi",
+  "Profiterol",
+  "Madlen Çikolata" 
+]
 
-// const mevsimlikTatlar = [
-// "Pekan",
-// "Kaju",
-// "Çikolatalı Mousse",
-// "Fransız Vanilyası",
-// "Yumurta",
-// "Alman çikolatası",
-// "Kek üzerine krema",
-// "Hindistan Cevizi",
-// "Kaymaklı Biskuvi",
-// "Beyaz Çikolata",
-// "Mango"
-// ]
+const mevsimlikTatlar = [
+  "Pekan",
+  "Kaju",
+  "Çikolatalı Mousse",
+  "Fransız Vanilyası",
+  "Yumurta",
+  "Alman çikolatası",
+  "Kek üzerine krema",
+  "Hindistan Cevizi",
+  "Kaymaklı Biskuvi",
+  "Beyaz Çikolata",
+  "Mango"
+]
 
-// const bolgeselTatlar = [
-// "Kaymak",
-// "Karpuz",
-// "Karadut",
-// "Turunç",
-// "Portakal",
-// "Yogurt",
-// "Krem Peynir",
-// "Kakao",
-// "Karamel macchiato",
-// "Kuru üzüm",
-// "Peynir",
-// "Karamel"
-// ]
+const bolgeselTatlar = [
+  "Kaymak",
+  "Karpuz",
+  "Karadut",
+  "Turunç",
+  "Portakal",
+  "Yogurt",
+  "Krem Peynir",
+  "Kakao",
+  "Karamel macchiato",
+  "Kuru üzüm",
+  "Peynir",
+  "Karamel"
+]
+
+function rastgeleTatlar(dizi1, dizi2, dizi3, dizi4){
+  //const answer = Math.floor(Math.random() * 25);
+  const tumTatlar = [...new Set(dizi1.concat(dizi2,dizi3,dizi4))];
+  const rastgeleTatlar = [];
+  for(let i=0; i<25; i++){
+    const rastgeleIndex = Math.floor(Math.random() * tumTatlar.length);
+    const rastgeleOge = tumTatlar[rastgeleIndex];
+    rastgeleTatlar.push(rastgeleOge);
+  }
+  return rastgeleTatlar;
+}
+const rastgeleDizi = rastgeleTatlar(orijinalTatlar, yeniTatlar, mevsimlikTatlar, bolgeselTatlar);
+console.log(rastgeleDizi);
+
+
 
 
 /* Lütfen bu satırın altındaki hiçbir şeyi değiştirmeyin */
