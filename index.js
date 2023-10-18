@@ -39,11 +39,15 @@ Aşağıdakileri yapmak için aşağıdaki kopyalama işlevini kullanın:
    2. Alınan dizinin bir kopyasını döndür
 */
 
-
-function kopyala(/*kod buraya*/){
-  /*kod buraya*/
+function kopyala(dizi){
+let newArray = [...dizi];
+ return newArray;
 }
+//console.log(kopyala(orijinalTatlar));
 
+let yeniArray = kopyala(orijinalTatlar)
+yeniArray[0] = "Elma"
+//console.log(orijinalTatlar[0]);
 
 /* Görev 2:
 Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları kabul etmelidir:
@@ -55,11 +59,14 @@ Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları ka
 Örneğin: dizi25Cesit(orijinalTatlar) kodunuz düzgün çalışıyorsa true değerini döndürür.
 */
 
-
-function dizi25Cesitmi(/*kod buraya*/){
-  /*kod buraya*/
+function dizi25Cesitmi(dizi){
+  if(dizi.length === 25) {
+    return true;
+  }
+  else {return false;
+  }
 }
-
+console.log(dizi25Cesitmi(orijinalTatlar));
 
 /* Görev 3:
 Pastane sahibi size yeni bir lezzet fikriyle geldi: Kakule! Bunun da çok tutacağından çok emin. Bu lezzeti eklemek için diziyi değiştirmeniz gerekir.
@@ -74,9 +81,12 @@ Aşağıdakileri yapmak için cesitEkle işlevini kullanın:
 */
 
 
-function cesitEkle(/*kod buraya*/){
-  /*kod buraya*/
-}
+function cesitEkle(tatlilar,yeniTat){
+
+  tatlilar.unshift(yeniTat)
+   return tatlilar;
+}  
+
 
 
 /* Cörev 4:
@@ -92,24 +102,25 @@ Aşağıdakileri yapmak için sonCesitiKaldir işlevini kullanın:
 */
 
 
-function sonCesitiKaldir(/*kod buraya*/){
-  /*kod buraya*/
+function sonCesitiKaldir(longArray){
+  longArray.pop();
+  return longArray;
 }
-
+console.log(sonCesitiKaldir(orijinalTatlar));
 
 /* Görev 5:
 Dizideki belirli bir indeksteki çeşniyi döndüren bir işlev yazın.
 
 Aşağıdakileri yapmak için aşağıdaki indekstekiCesitiGetir işlevini kullanın:
    1. İlk parametrede tatlar dizisini argüman olarak alacak bir dizi alın
-   2. İkinci parametrede argüman olarak istenen dizini alacak bir sayı alın
+   2. İkinci parametrede argüman olarak istenen dizinini alacak bir sayı alın
    3. Verilen indekste bulunan çeşiti döndürün
 
    Örneğin: indekstekiCesitiGetir(orijinalTatlar, 2) çalıştırılmasıyla, Kakule'in başarıyla eklendiği varsayarsak sonuç "Ceviz" olucaktır.
 */
 
-function indekstekiCesitiGetir(/*kod buraya*/){
-  /*kod buraya*/
+function indekstekiCesitiGetir(originalArray, index){
+  return originalArray[index];
 }
 
 
@@ -128,8 +139,14 @@ Aşağıdakileri yapmak için ismeGoreCesitCikar işlevini kullanın:
   İPUCU: Bunun için .splice() kullanabilirsiniz.
 */
 
-function ismeGoreCesitCikar(/*kod buraya*/){
-  /*kod buraya*/
+function ismeGoreCesitCikar(originalArray, oldFlavour){
+  for(let i = 0; i < originalArray.length; i++) {
+    if (originalArray[i] == oldFlavour){
+      originalArray.splice(i,1);
+      return originalArray;
+    }
+  }
+  
 }
 
 
@@ -154,10 +171,15 @@ Aşağıdakileri yapmak için ismeGoreFiltrele işlevini kullanın:
 */
 
 
-function ismeGoreFiltrele(/*kod buraya*/){
-  /*kod buraya*/
-}
-
+function ismeGoreFiltrele(tatlar, filterValue){
+  let yeniDizi = [];
+  for (let i = 0; i < tatlar.length; i++){
+    if (tatlar[i].includes(filterValue)){
+      yeniDizi.push(tatlar[i]);
+    }
+  }
+  return yeniDizi;
+} 
 
 
 /* ALIŞTIRMA */
@@ -174,6 +196,7 @@ Aşağıdakileri yapmak için ortalamaKelimeSayisi işlevini kullanın:
 
 function ortalamaKelimeSayisi(/*kod buraya*/){
   /*kod buraya*/
+
 }
 
 
